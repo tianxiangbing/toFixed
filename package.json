@@ -1,0 +1,23 @@
+{
+  "name": "js-tofixed",
+  "version": "0.0.0",
+  "description": "js toFixed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianxiangbing/toFixed.git"
+  },
+  "keywords": [
+    "js",
+    "toFixed"
+  ],
+  "author": "tianxiangbing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tianxiangbing/toFixed/issues"
+  },
+  "homepage": "https://github.com/tianxiangbing/toFixed#readme"
+}
