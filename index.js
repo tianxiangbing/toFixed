@@ -2,8 +2,24 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+/*
+ * Created with Visual Studio Code.
+ * github: https://github.com/tianxiangbing/toFixed.git
+ * User: 田想兵
+ * Date: 2017-07-31
+ * Time: 20:00:00
+ * Contact: 55342775@qq.com
+ * desc: 对小数位的四舍五入处理。
+ * 请使用https://github.com/tianxiangbing/toFixed.git 上的代码
+ */
 _extends(Number.prototype, {
     toFixedMax: function toFixedMax(max) {
+        var ps = this.split('.');
+        var len = 0;
+        if (ps.length > 1) {
+            len = ps[1].length;
+        }
+        max = Math.min(len, max);
         return this.toFixed(max);
     },
     toFixed: function toFixed(d) {
