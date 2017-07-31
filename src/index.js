@@ -5,17 +5,17 @@
  * Date: 2017-07-31
  * Time: 20:00:00
  * Contact: 55342775@qq.com
- * desc: 对小数位的四舍五入处理。
+ * desc: 对小数位的四舍五入处理。浮点数计算的处理
  * 请使用https://github.com/tianxiangbing/toFixed.git 上的代码
  */
 Object.assign(Number.prototype, {
     toFixedMax(max) {
         let ps = String(this).split('.');
-        let len= 0 ;
-        if(ps.length>1){
+        let len = 0;
+        if (ps.length > 1) {
             len = ps[1].length;
         }
-        max = Math.min(len,max);
+        max = Math.min(len, max);
         return this.toFixed(max);
     },
     toFixed(d) {
@@ -41,5 +41,70 @@ Object.assign(Number.prototype, {
             } if (b) s = s.substr(1);
             return (pm + s).replace(/\.$/, "");
         } return this + "";
+    }
+});
+const mul = (a, b) => {
+    var c = 0,
+        d = a.toString(),
+        e = b.toString();
+    try {
+        c += d.split(".")[1].length;
+    } catch (f) { }
+    try {
+        c += e.split(".")[1].length;
+    } catch (f) { }
+    return Number(d.replace(".", "")) * Number(e.replace(".", "")) / Math.pow(10, c);
+}
+//运算符
+Object.assign(Number, {
+    //加法
+    floatAdd(a, b) {
+        var c, d, e;
+        try {
+            c = a.toString().split(".")[1].length;
+        } catch (f) {
+            c = 0;
+        }
+        try {
+            d = b.toString().split(".")[1].length;
+        } catch (f) {
+            d = 0;
+        }
+        e = Math.pow(10, Math.max(c, d));
+        return (mul(a, e) + mul(b, e)) / e;
+    },
+    //减法
+    floatSub(a, b) {
+        var c, d, e;
+        try {
+            c = a.toString().split(".")[1].length;
+        } catch (f) {
+            c = 0;
+        }
+        try {
+            d = b.toString().split(".")[1].length;
+        } catch (f) {
+            d = 0;
+        }
+        e = Math.pow(10, Math.max(c, d));
+        return (mul(a, e) - mul(b, e)) / e;
+    },
+    //乘法
+    floatMul(a, b) {
+        return mul(a, b)
+    },
+    //除法
+    floatDiv(a, b) {
+        var c, d, e = 0,
+            f = 0;
+        try {
+            e = a.toString().split(".")[1].length;
+        } catch (g) { }
+        try {
+            f = b.toString().split(".")[1].length;
+        } catch (g) { }
+        c = Number(a.toString().replace(".", ""));
+        d = Number(b.toString().replace(".", ""));
+        return mul(c / d, Math.pow(10, f - e));
     }
 })

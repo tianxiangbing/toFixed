@@ -1,6 +1,6 @@
 {
   "name": "js-tofixed",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "js toFixed",
   "main": "index.js",
   "scripts": {
