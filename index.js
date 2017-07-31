@@ -14,7 +14,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
  */
 _extends(Number.prototype, {
     toFixedMax: function toFixedMax(max) {
-        var ps = this.split('.');
+        var ps = String(this).split('.');
         var len = 0;
         if (ps.length > 1) {
             len = ps[1].length;

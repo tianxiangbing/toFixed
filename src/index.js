@@ -10,7 +10,7 @@
  */
 Object.assign(Number.prototype, {
     toFixedMax(max) {
-        let ps = this.split('.');
+        let ps = String(this).split('.');
         let len= 0 ;
         if(ps.length>1){
             len = ps[1].length;
