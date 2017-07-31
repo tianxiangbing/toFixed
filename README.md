@@ -5,3 +5,11 @@
 
 # NPMJS
     npm install js-tofixed --save
+
+# Example
+
+    1.55.toFixed(1) =>1.6
+    (-1.55).toFixed(1) =>1.5
+    1.555.toFixedMax(2)=>1.56
+    1.5.toFixedMax(2)=>1.5
+    
