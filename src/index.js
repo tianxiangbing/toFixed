@@ -121,7 +121,7 @@
             d = Number(b.toString().replace(".", ""));
             let m = Math.max(e,f);
             let p = Math.pow(10,m);
-            return floatDiv(mul(p , a) % mul(p , b),p);
+            return this.floatDiv(mul(p , a) % mul(p , b),p);
         }
     })
 })();

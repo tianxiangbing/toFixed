@@ -135,7 +135,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             d = Number(b.toString().replace(".", ""));
             var m = Math.max(e, f);
             var p = Math.pow(10, m);
-            return floatDiv(mul(p, a) % mul(p, b), p);
+            return this.floatDiv(mul(p, a) % mul(p, b), p);
         }
     });
 })();
