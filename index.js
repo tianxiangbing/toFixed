@@ -119,6 +119,23 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             c = Number(a.toString().replace(".", ""));
             d = Number(b.toString().replace(".", ""));
             return mul(c / d, Math.pow(10, f - e));
+        },
+        mod: function mod(a, b) {
+            var c,
+                d,
+                e = 0,
+                f = 0;
+            try {
+                e = a.toString().split(".")[1].length;
+            } catch (g) {}
+            try {
+                f = b.toString().split(".")[1].length;
+            } catch (g) {}
+            c = Number(a.toString().replace(".", ""));
+            d = Number(b.toString().replace(".", ""));
+            var m = Math.max(e, f);
+            var p = Math.pow(10, m);
+            return floatDiv(mul(p, a) % mul(p, b), p);
         }
     });
 })();
